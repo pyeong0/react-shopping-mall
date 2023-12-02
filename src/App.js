@@ -1,16 +1,15 @@
 // import logo from "./logo.svg";
+import { lazy, useState, useEffect } from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./App.css";
 import bg from "./img/bg.png";
-import { useState } from "react";
 import data from "./data.js";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import Detail from "./routes/Detail.js";
 import axios from "axios";
 import Cart from "./routes/Cart.js";
-// import { useNavigate } from "react-router-dom";
 
 function App() {
   const buttons = [
@@ -19,8 +18,12 @@ function App() {
     { id: 2, label: "상세보기" },
   ];
 
-  let [shoes] = useState(data);
+  let [shoes, setShoes] = useState(data);
   let navigate = useNavigate();
+
+  useEffect(() => {
+    localStorage.setItem("watched", JSON.stringify([]));
+  }, []);
 
   return (
     <div className="App">

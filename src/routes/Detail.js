@@ -25,15 +25,15 @@ function Detail(props) {
   let { id } = useParams();
   let 찾은상품 = props.shoes.find((x) => x.id == id);
   let dispatch = useDispatch();
+  let [count, setCount] = useState(0);
+  let [alert, setAlert] = useState(true);
+  let [탭, 탭변경] = useState(0);
+  let [num, setNum] = useState("");
 
   useEffect(() => {
     //여기적은 코드는 컴포넌트 로드 & 업데이트 마다 실행됨
     console.log("안녕");
   });
-
-  let [count, setCount] = useState(0);
-  let [alert, setAlert] = useState(true);
-  let [탭, 탭변경] = useState(0);
 
   useEffect(() => {
     setTimeout(() => {
@@ -41,14 +41,22 @@ function Detail(props) {
     }, 10000);
   }, []);
 
-  let [num, setNum] = useState("");
-
   useEffect(() => {
     if (isNaN(num) == true) {
       alert("그러지마세요");
     }
   }, [num]);
 
+  useEffect(() => {
+    let 꺼낸거 = localStorage.getItem("watched");
+    꺼낸거 = JSON.parse(꺼낸거);
+    꺼낸거.push(찾은상품.id);
+
+    //Set으로 바꿨다가 다시 array로 만들기
+    꺼낸거 = new Set(꺼낸거);
+    꺼낸거 = Array.from(꺼낸거);
+    localStorage.setItem("watched", JSON.stringify(꺼낸거));
+  }, []);
   return (
     <div className="container">
       <Box>
