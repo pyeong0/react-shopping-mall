@@ -11,9 +11,7 @@ import Detail from "./routes/Detail.js";
 import axios from "axios";
 import Cart from "./routes/Cart.js";
 // import { useNavigate } from "react-router-dom";
-//
-//
-//
+
 function App() {
   const buttons = [
     { id: 0, label: "상세보기" },
