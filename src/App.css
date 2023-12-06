@@ -1,18 +1,10 @@
-.moveBtn {
-  display: flex;
-  justify-content: space-between;
-}
-.moveBtn button:first-child {
-  margin-left: 167px;
-}
-.moveBtn button:nth-child(3) {
-  margin-right: 170px; /* 혹은 원하는 마진 값으로 설정하세요 */
-}
 .main-bg {
   height: 300px;
-  background-image: url("./img/bg.png");
-  background-size: cover;
+  background-image: url("../public/img/bg.jpg");
+  background-size: auto 100%;
   background-position: center;
+  background-repeat: no-repeat;
+  background-color: black;
 }
 .start {
   opacity: 0;
@@ -20,6 +12,75 @@
 .end {
   opacity: 1;
   transition: opacity 0.5s;
+}
+.Container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#ftWrap .footerInfoWrap {
+  padding: 50px 0;
+  background: #f7f7f7;
+}
+
+.clear {
+  zoom: 1;
+}
+.clear:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#ftWrap {
+  margin: 100px 0 0 0;
+  font-size: 13px;
+  color: #9e9e9e;
+}
+#ftWrap .footerInfoWrap .inner {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap; /* 화면 크기에 따라 항목들을 줄바꿈 */
+  max-width: 1400px;
+  min-width: 1200px;
+  margin: 0 auto;
+  font-size: 13px;
+  text-align: left;
+  color: #333;
+  font-weight: bold;
+}
+#ftWrap .footerInfoWrap h2 {
+  font-weight: bold;
+}
+
+#ftWrap .footerInfoWrap .inner div p {
+  color: #555;
+}
+
+#ftWrap .footerInfoWrap .inner h2 {
+  font-size: 17px;
+}
+.footerInfoWrap.clear {
+  padding: 30px 0;
+}
+
+#ftWrap .addr p {
+  padding: 0;
+  text-align: center;
+  line-height: 0; /* 줄 간격을 줄임 */
+  font-size: 10px;
+}
+
+#ftWrap .addr {
+  margin: 30px 0px;
+}
+.footerNav h2 {
+  color: black;
+}
+.footerInfoWrap p a {
+  color: black;
+  text-decoration: none;
 }
 
 .App {
