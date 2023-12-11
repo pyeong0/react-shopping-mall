@@ -6,23 +6,31 @@ import "./App.css";
 // import bg from "./img/bg.jpg";
 import { useState } from "react";
 import data from "./data.js";
-import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  Link,
+  useNavigate,
+  Outlet,
+  useLocation,
+} from "react-router-dom";
 import Detail from "./routes/Detail.js";
 import axios from "axios";
 import Cart from "./routes/Cart.js";
+import Event from "./routes/Event.js";
+
 import Footer from "./footer";
 
 function App() {
   let [pants] = useState(data);
   let navigate = useNavigate();
-
+  let location = useLocation();
   return (
     <div className="App">
       <Navbar bg="light" data-bs-theme="light" className=" ">
         <Container>
           <Navbar.Brand href="/">ep Shop</Navbar.Brand>
           <Nav className="me-auto">
-            {/* <Nav.Link href="/">Home</Nav.Link> */}
             <Nav.Link
               onClick={() => {
                 navigate("/");
@@ -37,10 +45,18 @@ function App() {
             >
               Cart
             </Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigate("/event");
+              }}
+            >
+              Event
+            </Nav.Link>
           </Nav>
         </Container>
       </Navbar>
-      <div className="main-bg"></div>
+
+      {location.pathname === "/" && <div className="main-bg"></div>}
 
       <Routes>
         <Route
@@ -66,20 +82,16 @@ function App() {
             </Container>
           }
         />
-
-        {/* <Route path="/detail" element={<Detail pants={pants} />} /> */}
         <Route path="/detail/:id" element={<Detail pants={pants} />} />
         <Route path="/about" element={<About />} />
         <Route path="/about/member" element={<div>멤버들</div>} />
         <Route path="/about/location" element={<div>회사위치</div>} />
-        <Route path="*" element={<div>존재하지 않는 페이지 입니다</div>} />
         <Route path="/cart" element={<Cart />} />
-      </Routes>
-      <Routes>
-        <Route path="/event" element={<EventPage />}>
-          <Route path="one" element={<p>첫 주문시 양배추즙 서비스</p>}></Route>
+        <Route path="/event" element={<Event />}>
+          <Route path="one" element={<p>첫 주문시 양말 무료증정</p>}></Route>
           <Route path="two" element={<p>생일기념 쿠폰받기</p>}></Route>
         </Route>
+        <Route path="*" element={<div>존재하지 않는 페이지 입니다</div>} />
       </Routes>
 
       <Footer />
@@ -100,19 +112,25 @@ function Card(props) {
 function About() {
   return (
     <div>
-      <h4>about페이지임</h4>
+      <h4>안녕하세요. ep shop에 방문해주셔서 감사합니다.</h4>
       <Outlet></Outlet>
     </div>
   );
 }
 
-function EventPage() {
-  return (
-    <div>
-      <h4>오늘의 이벤트</h4>
-      <Outlet></Outlet>
-    </div>
-  );
+// function EventPage() {
+// return (
+// <div>
+{
+  /* <h4>오늘의 이벤트</h4> */
 }
+{
+  /* <Outlet></Outlet> */
+}
+{
+  /* </div> */
+}
+// );
+// }
 
 export default App;

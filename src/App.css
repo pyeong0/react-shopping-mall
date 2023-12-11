@@ -5,6 +5,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-color: black;
+  margin-bottom: 30px;
 }
 .start {
   opacity: 0;
@@ -83,6 +84,125 @@
   text-decoration: none;
 }
 
+.emoticon {
+  cursor: pointer;
+}
+.emoticon span {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+#first_section {
+  text-align: center;
+  height: 560px;
+  color: #fff;
+  background: url(../public/img/street.jpg) fixed;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  margin-bottom: 250px;
+}
+
+#first_section .container {
+  padding-top: 70px;
+}
+
+#first_section h1 {
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.8em;
+  text-shadow: 7px 9px 5px rgba(161, 19, 15, 0.294);
+}
+
+#first_section p {
+  text-transform: uppercase;
+
+  padding-top: 75px;
+  color: #fff;
+}
+
+.fs_sale {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 24, 0, 0.75);
+  position: relative;
+}
+
+#holiday_season_sale {
+  font-size: 50px;
+  animation-duration: 3s;
+}
+
+#time_again {
+  font-size: 100px;
+}
+
+#save_up_to {
+  border: 2.5px solid #fff;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 0;
+  height: 100%;
+  width: 100%;
+  font-size: 32px;
+  width: 60%;
+  padding: 20px;
+  margin-top: 30px;
+  position: relative;
+  left: 22%;
+}
+
+#save_up_to:hover {
+  color: #fff;
+  border-radius: 45px;
+}
+
+#offer_ends {
+  animation-duration: 2s;
+}
+
+#bigbell {
+  animation-duration: 30s;
+  margin-top: 0px;
+  height: 180px;
+  width: 180px;
+  /* margin-right: 70px; */
+}
+
+.santa_pic {
+  height: 339px;
+  width: 272px;
+}
+
+#second_section {
+  text-align: center;
+  padding-top: 100px;
+}
+
+#second_section img {
+  height: 120px;
+}
+
+.sectionhead {
+  padding: 0 150px;
+}
+.sectionhead h2 {
+  padding-bottom: 10px;
+}
+
+.sectionhead p {
+  font-size: 16px;
+  line-height: 1.6em;
+}
+
+.sectionhead hr {
+  width: 75px;
+  border-bottom: 4px solid #eeeeee;
+}
+
+.highlight {
+  color: #f53f2c;
+}
+
 .App {
   text-align: center;
 }
@@ -119,5 +239,166 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  #time_again {
+    font-size: 70px;
+  }
+  #save_up_to {
+    font-size: 30px;
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  #holiday_season_sale {
+    font-size: 45px;
+  }
+  #time_again {
+    font-size: 60px;
+  }
+  #save_up_to {
+    font-size: 24px;
+    padding: 10px;
+  }
+  .bigbell {
+    height: 180px;
+    width: 180px;
+    margin-right: 70px;
+  }
+  .sectionhead {
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  #first_section {
+    height: 500px;
+  }
+  #holiday_season_sale {
+    font-size: 45px;
+  }
+  #time_again {
+    font-size: 50px;
+  }
+  #save_up_to {
+    font-size: 20px;
+    padding: 10px;
+  }
+  .bigbell {
+    margin-top: 0px;
+  }
+  .bigbell {
+    height: 110px;
+    width: 110px;
+    position: absolute;
+    top: 300px;
+    left: 30%;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  #first_section {
+    height: 360px;
+  }
+  #first_section .container {
+    padding-top: 30px;
+  }
+  #first_section p {
+    padding-top: 60px;
+  }
+  #holiday_season_sale {
+    font-size: 40px;
+  }
+  #time_again {
+    font-size: 45px;
+  }
+  #save_up_to {
+    font-size: 18px;
+    padding: 10px;
+  }
+  #offer_ends {
+    margin-top: 0px;
+  }
+}
+
+@media only screen and (max-width: 530px) {
+  #first_section {
+    height: 320px;
+  }
+  #first_section .btn {
+    margin-top: 10px;
+  }
+  #holiday_season_sale {
+    font-size: 30px;
+  }
+  #time_again {
+    font-size: 38px;
+  }
+  #save_up_to {
+    font-size: 18px;
+    padding: 10px;
+  }
+  #offer_ends {
+    margin-top: -30px;
+  }
+  .bigbell {
+    top: 270px;
+    left: 30%;
+  }
+  .sectionhead p {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  #first_section .container {
+    padding-top: 50px;
+  }
+  #holiday_season_sale {
+    font-size: 26px;
+  }
+  #time_again {
+    font-size: 34px;
+  }
+  #save_up_to {
+    font-size: 15px;
+    padding: 5px;
+  }
+  .optional {
+    display: none;
+  }
+  #offer_ends {
+    margin-top: -20px;
+  }
+  .bigbell {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  #save_up_to {
+    font-size: 15px;
+  }
+
+  #save_up_to {
+    font-size: 15px;
+    padding: 5px;
+  }
+  #save_up_to {
+    font-size: 15px;
+  }
+  #offer_ends {
+    margin-top: -10px;
+  }
+  .bigbell {
+    display: none;
+  }
+  .bigbell {
+    display: none;
+  }
+  #second_section {
+    padding-top: 50px;
   }
 }

@@ -4,63 +4,49 @@ import { useState, useEffect } from "react";
 import { Nav } from "react-bootstrap";
 import { addItem } from "./../store.js";
 import { useDispatch } from "react-redux";
-
-let Box = styled.div`
-  padding: 20px;
-  color: grey;
-`;
-let YellowBtn = styled.button`
-  background: yellow;
-  color: black;
-  padding: 10px;
-`;
-
-let SkyBtn = styled.button`
-  background: ${(props) => props.bg};
-  color: black;
-  padding: 10px;
-`;
+import { useNavigate } from "react-router-dom";
 
 function Detail(props) {
   let { id } = useParams();
+  let [thumb, setThumb] = useState(0);
+  let [heart, setHeart] = useState(0);
+  let [sad, setSad] = useState(0);
+
   let 찾은상품 = props.pants.find((x) => x.id == id);
   let dispatch = useDispatch();
+  let navigate = useNavigate();
 
   useEffect(() => {
     //여기적은 코드는 컴포넌트 로드 & 업데이트 마다 실행됨
-    console.log("안녕");
+    console.log("ep shop");
   });
 
   let [count, setCount] = useState(0);
   let [alert, setAlert] = useState(true);
-  let [탭, 탭변경] = useState(0);
+  let [tap, setTap] = useState(0);
 
   useEffect(() => {
     setTimeout(() => {
       setAlert(false);
-    }, 10000);
+    }, 600000);
   }, []);
 
   let [num, setNum] = useState("");
 
   useEffect(() => {
     if (isNaN(num) == true) {
-      alert("그러지마세요");
+      alert("숫자를 입력하세요");
     }
   }, [num]);
 
   return (
     <div className="container">
-      <Box>
-        <YellowBtn>버튼</YellowBtn>
-      </Box>
-
       {/* <input> 하나 만들고 거기에 유저가 숫자 말고 다른걸 입력하면 
-      그러지마세요"라는 안내메세지를 출력 */}
+      "숫자를 입력하세요"라는 안내메세지를 출력 */}
       {/* <input onChange((e)=>{ setNum(e.target.value) }) /> */}
-
+      <br />
       {alert == true ? (
-        <div className="alert alert-warning">10초이내 구매시 할인</div>
+        <div className="alert alert-warning">10분이내 구매시 10%할인</div>
       ) : null}
       <div className="row">
         <div className="col-md-6">
@@ -87,65 +73,130 @@ function Detail(props) {
               );
             }}
           >
-            주문하기
+            장바구니 넣기
           </button>
-          <br />
-          <br />
-          <SkyBtn bg="orange">오렌지색 버튼</SkyBtn>
-          <br />
-          <br />
-          <SkyBtn bg="blue">파란색 버튼</SkyBtn>
           <br />
           <br />
           <button
-            onClick={() => {
-              setCount(count + 1);
+            className="btn btn-danger"
+            style={{
+              color: "black",
+              backgroundColor: "white",
+              borderColor: "black",
             }}
+            onClick={() => navigate("/cart")}
           >
-            버튼
+            장바구니 이동
           </button>
+          <br />
+          <br />
+          <h4 className="emoticon">
+            <span
+              onClick={(e) => {
+                e.stopPropagation();
+                setThumb(thumb + 1);
+              }}
+            >
+              👍
+            </span>
+            {thumb}
+            <span
+              onClick={(e) => {
+                e.stopPropagation();
+                setHeart(heart + 1);
+              }}
+            >
+              💖
+            </span>
+            {heart}
+            <span
+              onClick={(e) => {
+                e.stopPropagation();
+                setSad(sad + 1);
+              }}
+            >
+              😂
+            </span>
+            {sad}
+          </h4>
         </div>
       </div>
+
       <Nav variant="tabs" defaultActiveKey="link0">
         <Nav.Item>
           <Nav.Link
             onClick={() => {
-              탭변경(0);
+              setTap(0);
             }}
             eventKey="link0"
           >
-            버튼0
+            색상
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
           <Nav.Link
             onClick={() => {
-              탭변경(1);
+              setTap(1);
             }}
             eventKey="link1"
           >
-            버튼1
+            사이즈
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
           <Nav.Link
             onClick={() => {
-              탭변경(2);
+              setTap(2);
             }}
             eventKey="link2"
           >
-            버튼2
+            상품정보
           </Nav.Link>
         </Nav.Item>
       </Nav>
 
-      <TabContent 탭={탭} />
+      <TabContent tap={tap} />
     </div>
   );
 }
 
 function TabContent(props) {
-  return [<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][props.탭];
+  return [
+    <div>
+      <br />
+      GRAY
+      <br />
+      NAVY
+      <br />
+      BLACK
+      <br />
+      IVORY
+      <br />
+      BROWN
+    </div>,
+    <div>
+      <br />
+      M
+      <br />
+      L
+      <br />
+      XL
+      <br />
+      2XL
+    </div>,
+    <div>
+      <br />
+      레귤러핏
+      <br />
+      비침없음
+      <br />
+      두께보통
+      <br />
+      안감없음
+      <br />
+      기모없음
+    </div>,
+  ][props.tap];
 }
 
 export default Detail;

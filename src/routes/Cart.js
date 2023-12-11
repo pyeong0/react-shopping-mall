@@ -12,7 +12,9 @@ function Cart() {
 
   return (
     <>
+      <br />
       <h6> {state.user.name}의 장바구니 </h6>
+      <br />
       <Table>
         <thead>
           <tr>
