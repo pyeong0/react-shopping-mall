@@ -31,6 +31,10 @@ function Detail(props) {
     }, 600000);
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
+
   let [num, setNum] = useState("");
 
   useEffect(() => {
@@ -176,6 +180,8 @@ function TabContent(props) {
     </div>,
     <div>
       <br />
+      S
+      <br />
       M
       <br />
       L
@@ -188,13 +194,13 @@ function TabContent(props) {
       <br />
       레귤러핏
       <br />
-      비침없음
-      <br />
       두께보통
       <br />
-      안감없음
+      비침X
       <br />
-      기모없음
+      안감X
+      <br />
+      기모X
     </div>,
   ][props.tap];
 }

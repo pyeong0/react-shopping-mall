@@ -1,10 +1,16 @@
+/* 전체 페이지에 대해 가로 스크롤 금지 */
+body,
+html {
+  overflow-x: hidden;
+}
 .main-bg {
   height: 300px;
-  background-image: url("../public/img/bg.jpg");
+  background-image: url("../public/img/price_tag.png"),
+    url("../public/img/bg.jpg"), url("../public/img/santa_head.png");
   background-size: auto 100%;
-  background-position: center;
+  background-position: left 35px center, center center, right 10px center;
   background-repeat: no-repeat;
-  background-color: black;
+  /* background-color: black; */
   margin-bottom: 30px;
 }
 .start {
@@ -99,7 +105,7 @@
   background: url(../public/img/street.jpg) fixed;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  margin-bottom: 250px;
+  margin-bottom: 380px;
 }
 
 #first_section .container {
@@ -321,6 +327,26 @@
   #offer_ends {
     margin-top: 0px;
   }
+  #ftWrap .footerInfoWrap .inner {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 77px;
+  }
+  .footerInfoWrap div:first-child p:last-child {
+    margin-bottom: 30px;
+  }
+  #ftWrap .addr p {
+    line-height: 1.6em;
+    font-size: 12px;
+    margin-bottom: 7px;
+  }
+  .main-bg {
+    background-image: url("../public/img/bg.jpg"),
+      url("../public/img/price_tag.png");
+    background-position: center center, center bottom;
+    background-size: cover, auto;
+    background-repeat: no-repeat;
+  }
 }
 
 @media only screen and (max-width: 530px) {
@@ -355,6 +381,9 @@
 @media only screen and (max-width: 380px) {
   #first_section .container {
     padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   #holiday_season_sale {
     font-size: 26px;

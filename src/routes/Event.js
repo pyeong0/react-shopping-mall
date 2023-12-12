@@ -8,7 +8,7 @@ function Event() {
               <h2 id="holiday_season_sale">시즌세일!</h2>
               <h1 id="time_again">기회를 놓치지 마세요!</h1>
               <h3 id="save_up_to">
-                이번 연휴 기간 최대 75% 할인!
+                이번 연휴 기간 최대 70% 할인!
                 <span className="optional">시즌!</span>
               </h3>
               <p id="offer_ends">12월 31일 일요일까지</p>
@@ -22,7 +22,7 @@ function Event() {
       <section id="second_section" className="container">
         <div className="sectionhead">
           <h2>
-            이번 연휴 기간 동안만 <span className="highlight">최대75%</span>
+            이번 연휴 기간 동안만 <span className="highlight">최대70%</span>
             할인합니다.
           </h2>
           <p>다시없을 기회, 놓치지 말고 지금 바로 구매하세요!</p>
@@ -54,8 +54,8 @@ function Event() {
           </div>
           <div className="col-md-6 col-lg-4">
             <img src="img/present_2.png" alt="" />
-            <h4>최대75%할인</h4>
-            <p>전 상품 최대 75% 할인</p>
+            <h4>최대70%할인</h4>
+            <p>전 상품 최대 70% 할인</p>
           </div>
           <div className="col-md-6 col-lg-4">
             <img src="img/present_1.png" alt="" />
